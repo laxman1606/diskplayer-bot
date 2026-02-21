@@ -108,13 +108,15 @@ async def media_handler(client, message):
         
         # Link Generation
         stream_link = f"{PUBLIC_URL}/stream/{chat_id}/{msg_id}"
-        app_link = f"https://yourdomain.blogspot.com/?url={urllib.parse.quote(stream_link)}"
+        # Sahi link generation
+        web_link = f"{WEB_APP_URL}/?url={urllib.parse.quote(stream_link)}"
 
         await message.reply_text(
             f"✅ **Ready to Watch!**\n\n"
             f"📂 `{file_name}`\n\n"
             f"🔗 **Stream Link:**\n`{stream_link}`",
             reply_markup=InlineKeyboardMarkup([
+                # Ab ye sahi se kaam karega
                 [InlineKeyboardButton("▶️ Watch Online", url=web_link)]
             ])
         )
